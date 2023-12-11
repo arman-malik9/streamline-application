@@ -1,0 +1,30 @@
+#list ul li   {
+    list-style-type: none;
+    padding: 3px;
+}
+
+li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 15px;
+}
+
+    li:before {
+        content: "\25BA \0020";
+        font-size: 20px;
+        position: absolute;
+        top: 5px;
+        left: -17px;
+    }
+    #logo-stream {
+        border: 0px solid white;
+        border-top-left-radius: 20px;
+        ;
+        
+    }
+    #logo-line {
+        border: 0px solid white;
+        border-bottom-right-radius: 20px;
+       
+        
+    }
