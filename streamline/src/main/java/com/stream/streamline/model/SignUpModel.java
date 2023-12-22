@@ -1,7 +1,5 @@
 package com.stream.streamline.model;
 
-import java.util.Date;
-
 public class SignUpModel {
 	private String name;
 	private String DOB;
