@@ -21,7 +21,4 @@ public class LogInModel {
 		return "LogInModel [email=" + email + ", password=" + password + "]";
 	}
 	
-
-	
-
 }
