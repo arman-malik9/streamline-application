@@ -31,7 +31,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title text-danger">Log In</h2>
-                        <form action="home" method="POST" class="register-form" id="login-form">
+                        <form action="home" method="POST" class="register-form" id="login-form" >
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="email" id="your_email" placeholder="Email"/>
@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span></span>Remember me</label>
-                                 <input type="submit" name="signin" id="signin" class="text-light bg-info btn btn-block btn-sm" value="Log in"/>
+                                 <input type="submit" name="signin" id="signin" class="text-light bg-info btn btn-block btn-sm" onclick="submitForm()" value="Log in"/>
                                  <br><a href="#" class="text-dark">Forgot Passward</a>
                                  <br>Don't have account? <a href="signUp.html"  class="text-dark">Sign Up</a>
                             </div>
@@ -57,5 +57,35 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
+	<script>
+	function submitForm() {
+            // Serialize the form data to JSON
+            var formData = $('#login-form').serialize();
+           // var jsonData = {};
+            //formData.forEach(function (field) {
+              //  jsonData[field.name] = field.value;
+          //  });
+
+            // Send the JSON data via AJAX
+            $.ajax({
+                type: 'POST',
+                url: '/home', // Change this to your endpoint
+              //  contentType: 'application/json',
+              contentType: 'application/x-www-form-urlencoded',
+
+              //  data: JSON.stringify(jsonData),
+                data: formData,
+                success: function (response) {
+                    // Handle the success response
+                    console.log(response);
+                    window.location.href = "/index";
+                },
+                error: function (error) {
+                    // Handle the error response
+                    console.error(error);
+                }
+            });
+        }
+	</script>
 </body>
 </html>

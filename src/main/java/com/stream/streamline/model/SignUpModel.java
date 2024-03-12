@@ -1,10 +1,28 @@
 package com.stream.streamline.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="Entries")
+
 public class SignUpModel {
+	
+	@Id 
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	
+	private int id;
 	private String name;
-	private String DOB;
+	private String dob;
 	private String email;
 	private String password;
+	
+	public SignUpModel() {
+	super();
+	}
 	
 	public String getName() {
 		return name;
@@ -12,11 +30,11 @@ public class SignUpModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDOB() {
-		return DOB;
+	public String getDob() {
+		return dob;
 	}
-	public void setDOB(String DOB) {
-		this.DOB = DOB;
+	public void setDob(String DOB) {
+		this.dob = DOB;
 	}
 	public String getEmail() {
 		return email;
@@ -32,6 +50,6 @@ public class SignUpModel {
 	}
 	@Override
 	public String toString() {
-		return "SignUpModel [name="+ name + ", DOB="+ DOB + ", email=" + email + ", password=" + password + "]";
+		return "SignUpModel [name="+ name + ", dob="+ dob + ", email=" + email + ", password=" + password + "]";
 	}
 }
