@@ -16,7 +16,26 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
+ <!-- Add Spring Cloud GCP Dependency BOM -->
+    <dependencyManagement>
+        <dependencies>
+          <dependency>
+          <groupId>com.google.cloud</groupId>
+          <artifactId>spring-cloud-gcp-dependencies</artifactId>
+          <version>4.1.4</version>
+          <type>pom</type>
+          <scope>import</scope>
+          </dependency>
+      </dependencies>
+    </dependencyManagement>
+
 	<dependencies>
+       <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-gcp-starter-sql-mysql</artifactId>
+        <version>1.2.8.RELEASE</version>
+       </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -41,10 +60,18 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
+			<groupId>mysql</groupId>
+			 <artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+            <version>8.0.28</version>
 		</dependency>
+       
+ <dependency>
+    <groupId>com.google.cloud.sql</groupId>
+    <artifactId>mysql-socket-factory-connector-j-8</artifactId>
+    <version>1.12.0</version>
+</dependency> 
+
 	</dependencies>
 
 	<build>
