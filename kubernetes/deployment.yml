@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamline-deployment
+  labels:
+    app: streamlineapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamlineapp
+  template:
+    metadata:
+      labels:
+        app: streamlineapp
+    spec:
+      containers:
+      - name: streamlineapp
+        image: omararman/streamline:v1
+        ports:
+        - containerPort: 8070
+
